@@ -1,6 +1,8 @@
 name: ota_string
 description: A new Flutter project.
 version: 0.0.1
+homepage: https://github.com/aldychris/ota_string/tree/master/ota_string
+repository: https://github.com/aldychris/ota_string/tree/master/ota_string
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
