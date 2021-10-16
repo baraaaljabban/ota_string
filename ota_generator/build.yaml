@@ -1,0 +1,10 @@
+# Read about `build.yaml` at https://pub.dev/packages/build_config
+builders:
+  ota_generators:
+    target: ":ota_generators"
+    import: "package:ota_generator/ota_builder.dart"
+    builder_factories: ["generateAppLocalize"]
+    build_extensions: { ".dart": [".g.dart"] }
+    auto_apply: dependents
+    build_to: cache
+    applies_builders: ["source_gen|combining_builder"]
