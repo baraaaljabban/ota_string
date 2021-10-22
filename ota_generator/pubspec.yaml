@@ -1,5 +1,5 @@
 name: ota_generator
-description: A new Flutter project.
+description: Source code generator to help create multi-language string translation with update over the air without any charges.
 version: 0.0.1
 publish_to: none
 

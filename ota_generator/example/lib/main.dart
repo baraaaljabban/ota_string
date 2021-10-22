@@ -31,7 +31,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   final _otaStringBloc = OtaStringBloc();
 
   var txtStyle = TextStyle(
@@ -72,16 +71,15 @@ class _MyHomePageState extends State<MyHomePage> {
         children: [
           Positioned.fill(
               child: Image.network(
-                'https://picsum.photos/id/257/960/1440',
-                fit: BoxFit.cover,
-              )
-          ),
+            'https://picsum.photos/id/257/960/1440',
+            fit: BoxFit.cover,
+          )),
           Align(
             alignment: Alignment.center,
             child: StreamBuilder<String>(
                 stream: _otaStringBloc.stringObservable,
-                builder: (context, AsyncSnapshot<String> snapshot){
-                  if(snapshot.hasData){
+                builder: (context, AsyncSnapshot<String> snapshot) {
+                  if (snapshot.hasData) {
                     return Container(
                       width: double.infinity,
                       decoration: boxDecorationBg,
@@ -93,8 +91,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     );
                   }
                   return SizedBox.shrink();
-                }
-            ),
+                }),
           ),
           Align(
             alignment: Alignment.bottomCenter,
@@ -106,11 +103,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   columnWidths: {
                     0: FixedColumnWidth(100),
                     1: FlexColumnWidth(),
-                  }, children: [
-                  _buildPrintTextSection(),
-                  _buildSetLanguageSection(),
-                  _buildUpdateTranslationSection()
-                ],
+                  },
+                  children: [
+                    _buildPrintTextSection(),
+                    _buildSetLanguageSection(),
+                    _buildUpdateTranslationSection()
+                  ],
                 ),
               ),
             ),
@@ -124,8 +122,10 @@ class _MyHomePageState extends State<MyHomePage> {
     return TableRow(children: [
       TableCell(
           verticalAlignment: TableCellVerticalAlignment.middle,
-          child: Text('Set Lang',  style: txtAltStyle,)
-      ),
+          child: Text(
+            'Set Lang',
+            style: txtAltStyle,
+          )),
       TableCell(
         verticalAlignment: TableCellVerticalAlignment.middle,
         child: Row(
@@ -140,7 +140,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Text('Eng'),
               ),
             ),
-            SizedBox(width: 4,),
+            SizedBox(
+              width: 4,
+            ),
             Expanded(
               child: ElevatedButton(
                 onPressed: () {
@@ -150,7 +152,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Text('Klingon'),
               ),
             ),
-            SizedBox(width: 4,),
+            SizedBox(
+              width: 4,
+            ),
             Expanded(
               child: ElevatedButton(
                 onPressed: () {
@@ -163,16 +167,17 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-    ]
-    );
+    ]);
   }
 
   TableRow _buildPrintTextSection() {
     return TableRow(children: [
       TableCell(
           verticalAlignment: TableCellVerticalAlignment.middle,
-          child: Text('Print Text',  style: txtAltStyle,)
-      ),
+          child: Text(
+            'Print Text',
+            style: txtAltStyle,
+          )),
       TableCell(
         verticalAlignment: TableCellVerticalAlignment.middle,
         child: Row(
@@ -187,7 +192,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Text('Greeting'),
               ),
             ),
-            SizedBox(width: 16,),
+            SizedBox(
+              width: 16,
+            ),
             Expanded(
               child: ElevatedButton(
                 onPressed: () {
@@ -200,16 +207,17 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-    ]
-    );
+    ]);
   }
 
   TableRow _buildUpdateTranslationSection() {
     return TableRow(children: [
       TableCell(
           verticalAlignment: TableCellVerticalAlignment.middle,
-          child: Text('Update',  style: txtAltStyle,)
-      ),
+          child: Text(
+            'Update',
+            style: txtAltStyle,
+          )),
       TableCell(
         verticalAlignment: TableCellVerticalAlignment.middle,
         child: Row(
@@ -225,7 +233,6 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-    ]
-    );
+    ]);
   }
 }

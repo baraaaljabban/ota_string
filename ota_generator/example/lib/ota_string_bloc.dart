@@ -3,8 +3,8 @@ import 'package:rxdart/rxdart.dart';
 import 'app_localize.dart';
 
 class OtaStringBloc {
-
-  late final PublishSubject<String> _stringMoreSubject = PublishSubject<String>();
+  late final PublishSubject<String> _stringMoreSubject =
+      PublishSubject<String>();
   Stream<String> get stringObservable => _stringMoreSubject.stream;
 
   void getHiString() async {
@@ -13,7 +13,8 @@ class OtaStringBloc {
   }
 
   void getIntroductionString() async {
-    var res = OtaAppLocalize.current.name_location.replaceOtaStringWith(['Spock', 'Vulcan']);
+    var res = OtaAppLocalize.current.name_location
+        .replaceOtaStringWith(['Spock', 'Vulcan']);
     _stringMoreSubject.add(res);
   }
 

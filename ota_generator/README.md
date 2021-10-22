@@ -2,8 +2,8 @@
 
 Source code generator to help create multi-language string translation with update over the air without any charges.  
 
-## Getting Started
-###1. Class for String
+# Getting Started
+##1. Class for String
 Create new class for your translation and put default value for every String and put @OtaStringClass annotation to generate the translation. 
 ```dart
 part 'app_localize.g.dart';
@@ -57,13 +57,13 @@ Here's the sample JSON to update String :
 }
 ```
 
-###2. Run Build Runner
+##2. Run Build Runner
 Run the build runner to generate the code
 ```shell
 flutter packages pub run build_runner build 
 ```
 
-###3. Stagging VS Production
+##3. Stagging VS Production
 For Production specify otaStringProdEnv as true variable on when you run your Flutter project
 ```shell
 flutter run --dart-define=otaStringProdEnv=true
