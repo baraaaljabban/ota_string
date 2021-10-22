@@ -98,17 +98,20 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           Align(
             alignment: Alignment.bottomCenter,
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Table(
-                columnWidths: {
-                  0: FixedColumnWidth(100),
-                  1: IntrinsicColumnWidth(flex: 2),
-                }, children: [
-                _buildPrintTextSection(),
-                _buildSetLanguageSection(),
-                _buildUpdateTranslationSection()
-              ],
+            child: SafeArea(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Table(
+                  // defaultColumnWidth: [1,1],
+                  columnWidths: {
+                    0: FixedColumnWidth(100),
+                    1: FlexColumnWidth(),
+                  }, children: [
+                  _buildPrintTextSection(),
+                  _buildSetLanguageSection(),
+                  _buildUpdateTranslationSection()
+                ],
+                ),
               ),
             ),
           ),
@@ -137,7 +140,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Text('Eng'),
               ),
             ),
-            SizedBox(width: 16,),
+            SizedBox(width: 4,),
             Expanded(
               child: ElevatedButton(
                 onPressed: () {
@@ -147,7 +150,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Text('Klingon'),
               ),
             ),
-            SizedBox(width: 16,),
+            SizedBox(width: 4,),
             Expanded(
               child: ElevatedButton(
                 onPressed: () {
