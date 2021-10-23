@@ -12,4 +12,5 @@ part 'app_localize.g.dart';
 class AppLocalize {
   final String _hello = 'DefaultHello';
   final String _name_location = 'My Name is {name}, Im from {location}';
+
 }
