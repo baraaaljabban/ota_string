@@ -203,14 +203,14 @@ packages:
     source: hosted
     version: "2.1.0"
   hive:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: hive
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.4"
   hive_flutter:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: hive_flutter
       url: "https://pub.dartlang.org"
@@ -289,16 +289,16 @@ packages:
   ota_generator:
     dependency: "direct dev"
     description:
-      path: ".."
-      relative: true
-    source: path
+      name: ota_generator
+      url: "https://pub.dartlang.org"
+    source: hosted
     version: "0.0.1"
   ota_string:
     dependency: "direct main"
     description:
-      path: "../../ota_string"
-      relative: true
-    source: path
+      name: ota_string
+      url: "https://pub.dartlang.org"
+    source: hosted
     version: "0.0.1"
   package_config:
     dependency: transitive
