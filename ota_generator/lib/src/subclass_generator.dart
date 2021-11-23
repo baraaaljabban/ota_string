@@ -1,4 +1,3 @@
-import 'package:analyzer/dart/constant/value.dart';
 import 'package:analyzer/dart/element/element.dart';
 import 'package:build/build.dart';
 import 'package:ota_string/ota_string.dart';
@@ -143,7 +142,7 @@ class SubClassGenerator extends GeneratorForAnnotation<OtaStringClass> {
     classBuffer.writeln('extension ${className}Extension on String {');
     classBuffer
         .writeln('String replaceOtaStringWith(List<String> listString) {');
-    classBuffer.writeln("final regex = RegExp(r'{[^{\}]+(})');");
+    classBuffer.writeln("final regex = RegExp(r'{[^{}]+(})');");
     classBuffer.writeln('final match = regex.allMatches(this).toList();');
     classBuffer.writeln('if(match.length != listString.length) {');
     classBuffer.writeln(
