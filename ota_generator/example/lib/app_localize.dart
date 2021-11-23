@@ -1,6 +1,4 @@
 import 'package:ota_string/ota_string.dart';
-import 'package:hive/hive.dart';
-
 part 'app_localize.g.dart';
 
 @OtaStringClass(

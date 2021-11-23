@@ -31,8 +31,6 @@ class SubClassGenerator extends GeneratorForAnnotation<OtaStringClass> {
 
     // start the Subclass
     classBuffer.writeln('class $className extends ${visitor.className} {');
-    classBuffer.writeln('static late Box box;');
-
     _getCurrentInstance(classBuffer, className, visitor);
     _loadString(classBuffer, className, listOfLangKey, listOfBoxKey);
     _updateData(classBuffer, className, visitor, translationServer,
@@ -61,7 +59,7 @@ class SubClassGenerator extends GeneratorForAnnotation<OtaStringClass> {
         classBuffer
             .writeln("var openbox = await OtaStorage.openStorage('$boxKey');");
         classBuffer.writeln('final instance = OtaAppLocalize();');
-        classBuffer.writeln("box = OtaStorage.openPrevStorage('$boxKey');");
+        classBuffer.writeln("OtaStorage.openPrevStorage('$boxKey');");
         classBuffer.writeln('OtaAppLocalize._current = instance;');
         classBuffer.writeln('return Future.value(instance);');
         classBuffer.writeln('}');
@@ -70,7 +68,7 @@ class SubClassGenerator extends GeneratorForAnnotation<OtaStringClass> {
         classBuffer
             .writeln("var openbox = await OtaStorage.openStorage('$boxKey');");
         classBuffer.writeln('final instance = OtaAppLocalize();');
-        classBuffer.writeln("box = OtaStorage.openPrevStorage('$boxKey');");
+        classBuffer.writeln("OtaStorage.openPrevStorage('$boxKey');");
         classBuffer.writeln('OtaAppLocalize._current = instance;');
         classBuffer.writeln('return Future.value(instance);');
         classBuffer.writeln('}');
@@ -81,7 +79,7 @@ class SubClassGenerator extends GeneratorForAnnotation<OtaStringClass> {
     classBuffer.writeln(
         "var openbox = await OtaStorage.openStorage('$defaultBoxKey');");
     classBuffer.writeln('final instance = OtaAppLocalize();');
-    classBuffer.writeln("box = OtaStorage.openPrevStorage('$defaultBoxKey');");
+    classBuffer.writeln("OtaStorage.openPrevStorage('$defaultBoxKey');");
     classBuffer.writeln('OtaAppLocalize._current = instance;');
     classBuffer.writeln('return Future.value(instance);');
     classBuffer.writeln('}');
@@ -104,7 +102,7 @@ class SubClassGenerator extends GeneratorForAnnotation<OtaStringClass> {
           field.startsWith('_') ? field.replaceFirst('_', '') : field;
       classBuffer.writeln();
       classBuffer.writeln(
-          "${visitor.fields[field]} get $variable => box.get('$variable', defaultValue: _$variable);");
+          "${visitor.fields[field]} get $variable => OtaStorage.getString('$variable', defValue: _$variable);");
     }
   }
 

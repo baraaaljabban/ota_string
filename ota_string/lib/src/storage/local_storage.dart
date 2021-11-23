@@ -6,7 +6,7 @@ abstract class OtaLocalStorage {
 
   void deleteData(String key);
 
-  String? getString(String key, {String defValue});
+  String getString(String key, {String defValue});
   void putData(Map<String, dynamic> entries);
 }
 
@@ -27,8 +27,9 @@ class HiveLocalStorage implements OtaLocalStorage {
   }
 
   @override
-  dynamic openPrevStorage(String storageName) {
-    return Hive.box<dynamic>(storageName);
+  dynamic openPrevStorage(String storageName) async {
+    _box = Hive.box<dynamic>(storageName);
+    return _box;
   }
 
   @override
@@ -37,7 +38,7 @@ class HiveLocalStorage implements OtaLocalStorage {
   }
 
   @override
-  String? getString(String key, {String? defValue}) {
+  String getString(String key, {String defValue = ''}) {
     return _box.get(key, defaultValue: defValue) as String;
   }
 

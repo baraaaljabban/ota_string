@@ -7,7 +7,6 @@ part of 'app_localize.dart';
 // **************************************************************************
 
 class OtaAppLocalize extends AppLocalize {
-  static late Box box;
   static OtaAppLocalize? _current;
   static OtaAppLocalize get current {
     assert(_current != null,
@@ -19,25 +18,25 @@ class OtaAppLocalize extends AppLocalize {
     if (locale == 'en') {
       var openbox = await OtaStorage.openStorage('box_en');
       final instance = OtaAppLocalize();
-      box = OtaStorage.openPrevStorage('box_en');
+      OtaStorage.openPrevStorage('box_en');
       OtaAppLocalize._current = instance;
       return Future.value(instance);
     } else if (locale == 'zh') {
       var openbox = await OtaStorage.openStorage('box_zh');
       final instance = OtaAppLocalize();
-      box = OtaStorage.openPrevStorage('box_zh');
+      OtaStorage.openPrevStorage('box_zh');
       OtaAppLocalize._current = instance;
       return Future.value(instance);
     } else if (locale == 'tlh') {
       var openbox = await OtaStorage.openStorage('box_tlh');
       final instance = OtaAppLocalize();
-      box = OtaStorage.openPrevStorage('box_tlh');
+      OtaStorage.openPrevStorage('box_tlh');
       OtaAppLocalize._current = instance;
       return Future.value(instance);
     } else {
       var openbox = await OtaStorage.openStorage('box_en');
       final instance = OtaAppLocalize();
-      box = OtaStorage.openPrevStorage('box_en');
+      OtaStorage.openPrevStorage('box_en');
       OtaAppLocalize._current = instance;
       return Future.value(instance);
     }
@@ -70,10 +69,10 @@ class OtaAppLocalize extends AppLocalize {
     }
   }
 
-  String get hello => box.get('hello', defaultValue: _hello);
+  String get hello => OtaStorage.getString('hello', defValue: _hello);
 
   String get name_location =>
-      box.get('name_location', defaultValue: _name_location);
+      OtaStorage.getString('name_location', defValue: _name_location);
 }
 
 extension OtaAppLocalizeExtension on String {

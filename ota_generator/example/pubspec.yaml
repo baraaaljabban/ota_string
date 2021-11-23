@@ -1,7 +1,7 @@
 name: example
 description: Just example
 repository: https://github.com/aldychris/ota_string/tree/master/ota_generator/example
-version: 0.0.1
+version: 0.0.2
 
 environment:
   sdk: '>=2.12.0-0 <3.0.0'
@@ -11,7 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  ota_string: ^0.0.1
+  ota_string: ^0.0.2
   rxdart: ^0.27.2
 
 dev_dependencies:
