@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "name": "main_stg",
+            "program": "lib/main.dart",
+            "cwd": "example",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--dart-define=otaStringProdEnv=false",
+            ]
+        }
+        {
+            "name": "main",
+            "program": "lib/main.dart",
+            "cwd": "example",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--dart-define=otaStringProdEnv=true",
+            ]
+        }
+    ]
+}

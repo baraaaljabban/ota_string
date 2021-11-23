@@ -14,8 +14,6 @@ class SubClassGenerator extends GeneratorForAnnotation<OtaStringClass> {
 
     final classBuffer = StringBuffer();
 
-    final extensionName = 'OtaAppLocalize';
-
     final className = 'Ota${visitor.className}';
     final translationServer = annotation.read('translationServer').stringValue;
     final translationServerValue = annotation.read('translationServerStg');
@@ -33,17 +31,6 @@ class SubClassGenerator extends GeneratorForAnnotation<OtaStringClass> {
 
     // start the Subclass
     classBuffer.writeln('class $className extends ${visitor.className} {');
-
-    // Map 'variables'
-    classBuffer.writeln('Map<String, dynamic> get variables =>');
-    classBuffer.writeln('{');
-    for (final field in visitor.fields.keys) {
-      final variable =
-          field.startsWith('_') ? field.replaceFirst('_', '') : field;
-      classBuffer.writeln("'$variable': $field,");
-    }
-    classBuffer.writeln('};');
-
     classBuffer.writeln('static late Box box;');
 
     _getCurrentInstance(classBuffer, className, visitor);
@@ -117,7 +104,7 @@ class SubClassGenerator extends GeneratorForAnnotation<OtaStringClass> {
           field.startsWith('_') ? field.replaceFirst('_', '') : field;
       classBuffer.writeln();
       classBuffer.writeln(
-          "${visitor.fields[field]} get $variable => box.get('$variable', defaultValue: variables['$variable']);");
+          "${visitor.fields[field]} get $variable => box.get('$variable', defaultValue: _$variable);");
     }
   }
 

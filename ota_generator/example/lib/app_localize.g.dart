@@ -7,10 +7,6 @@ part of 'app_localize.dart';
 // **************************************************************************
 
 class OtaAppLocalize extends AppLocalize {
-  Map<String, dynamic> get variables => {
-        'hello': _hello,
-        'name_location': _name_location,
-      };
   static late Box box;
   static OtaAppLocalize? _current;
   static OtaAppLocalize get current {
@@ -74,10 +70,10 @@ class OtaAppLocalize extends AppLocalize {
     }
   }
 
-  String get hello => box.get('hello', defaultValue: variables['hello']);
+  String get hello => box.get('hello', defaultValue: _hello);
 
   String get name_location =>
-      box.get('name_location', defaultValue: variables['name_location']);
+      box.get('name_location', defaultValue: _name_location);
 }
 
 extension OtaAppLocalizeExtension on String {
