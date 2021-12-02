@@ -19,8 +19,8 @@ dev_dependencies:
   lints: ^1.0.1
   ota_generator: ^0.0.3
 
-dependency_overrides:
-  ota_string:
-    path: ../../ota_string/
-  ota_generator:
-    path: ..
+#dependency_overrides:
+#  ota_string:
+#    path: ../../ota_string/
+#  ota_generator:
+#    path: ..
