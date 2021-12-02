@@ -6,3 +6,6 @@
 - Remove default value generator and use the default value direcly form parent class
 - Remove dependencies of import hive package in parent class
 - Add visual studio run config (launch.json)
+
+## 0.0.3
+- Fix some issue during load and update translation

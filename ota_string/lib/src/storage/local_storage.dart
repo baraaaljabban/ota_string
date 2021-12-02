@@ -12,7 +12,8 @@ abstract class OtaLocalStorage {
 
 class HiveLocalStorage implements OtaLocalStorage {
 
-  late Box<dynamic> _box;
+  late Box<dynamic> _boxUpdate;
+  late Box<dynamic> _boxOpen;
 
   static final OtaLocalStorage _instance = HiveLocalStorage._internal();
 
@@ -22,14 +23,14 @@ class HiveLocalStorage implements OtaLocalStorage {
 
   @override
   Future<dynamic> openStorage(String storageName) async {
-    _box = await Hive.openBox<dynamic>(storageName);
+    _boxUpdate = await Hive.openBox<dynamic>(storageName);
     return this;
   }
 
   @override
   dynamic openPrevStorage(String storageName) async {
-    _box = Hive.box<dynamic>(storageName);
-    return _box;
+    _boxOpen = Hive.box<dynamic>(storageName);
+    return _boxOpen;
   }
 
   @override
@@ -39,12 +40,12 @@ class HiveLocalStorage implements OtaLocalStorage {
 
   @override
   String getString(String key, {String defValue = ''}) {
-    return _box.get(key, defaultValue: defValue) as String;
+    return _boxOpen.get(key, defaultValue: defValue) as String;
   }
 
   @override
   void putData(Map<String, dynamic> entries) async {
-    _box.putAll(entries);
+    _boxUpdate.putAll(entries);
   }
 
 }
