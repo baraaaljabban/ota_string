@@ -10,7 +10,7 @@ dependencies:
   ota_string: ^0.0.4
   
 dev_dependencies:
-  ota_generator: ^0.0.1 4
+  ota_generator: ^0.0.4
 ```
 
 #### 2. Install
