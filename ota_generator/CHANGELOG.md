@@ -9,3 +9,6 @@
 
 ## 0.0.3
 - Fix some issue during load and update translation
+
+## 0.0.4
+- upgrade flutter version and update packages (working with anlyzer 5.x.x)
